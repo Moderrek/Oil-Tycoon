@@ -1,8 +1,10 @@
 /**
  * 
- * @param {Vec2} start The start position of the rectangle
- * @param {Vec2} size 
+ * @param {Vec2} worldPos The start position of the rectangle
+ * @param {Vec2} worldSize 
  */
-const drawRect = (start, size) => {
-    ctx.fillRect(start.x - cameraPos.x, start.y - cameraPos.y, size.x, size.y);
+const drawRect = (worldPos, worldSize) => {
+    const pos = worldToScreen(worldPos);
+    const size = sizeToScreen(worldSize);
+    ctx.fillRect(pos.x, pos.y, size.x, size.y);
 }
